@@ -137,6 +137,8 @@ sudo apt install nodejs
 
 sudo apt install npm
 
+sudo npm install -g @angular/cli@7.0.7
+
 
 =====================================================================================
 
@@ -204,5 +206,38 @@ sudo sysctl vm.swappiness=10
   sudo reboot
 
   to confirm that was adjusted: cat /proc/sys/vm/swappiness
+
+
+======================================================================================
+
+Install Eclipse IDE - 
+https://askubuntu.com/questions/1031171/eclipse-doesnt-start-on-ubuntu-18-04
+
+======================================================================================
   
-  
+sudo apt install default-jre
+
+sudo snap install --classic eclipse  
+
+sudo chmod 777 /var/www/html
+   run Eclipse Ide, then choice "/var/www/html" as eclipse workspace, then you can code PHP 
+   and other apache applications and the changes already visible when access 
+   http://localhost/<app-name>. Go to window -> preferences -> General -> Appearance, adjust 
+   the theme, font and colors, according whit ubuntu theme that are applied.
+   
+
+======================================================================================
+
+Install PhpMyAdmin as MariaDB client - https://www.phpmyadmin.net/
+
+======================================================================================
+
+download from https://www.phpmyadmin.net/
+
+copy the .zip file to "/var/www/html"
+
+sudo unzip <filezip>.zip 
+
+sudo mv <filezip> <newName>
+
+Access http://localhost/<newName>
