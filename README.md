@@ -40,6 +40,8 @@ sudo systemctl reload apache2
 
 sudo a2enmod rewrite
 
+sudo a2enmod allowmethods
+
 sudo systemctl restart apache2
 
 sudo apt install curl
@@ -56,6 +58,23 @@ sudo apt update
 
 sudo apt upgrade
 
+sudo gedit /etc/apache2/apache2.conf
+
+   add the following, (after <Directory /var/www> section):
+
+   <Directory /var/www/html>
+
+      Options Indexes FollowSymLinks
+
+      AllowOverride All
+
+      AllowMethods OPTIONS HEAD GET POST PUT PATCH DELETE
+
+      Require all granted
+
+   </Directory>
+
+sudo systemctl restart apache2
 
 ======================================================================================
 
@@ -241,3 +260,6 @@ sudo unzip <filezip>.zip
 sudo mv <filezip> <newName>
 
 Access http://localhost/<newName>
+
+
+
