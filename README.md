@@ -98,7 +98,7 @@ sudo mysql_secure_installation
 
 ======================================================================================
 
- Install PHP 7.4 - https://thishosting.rocks/install-php-on-ubuntu/
+ Install PHP 7.2 - https://thishosting.rocks/install-php-on-ubuntu/
 
 ======================================================================================
 
@@ -108,11 +108,9 @@ sudo apt upgrade
 
 sudo apt install software-properties-common
 
-sudo add-apt-repository ppa:ondrej/php
+sudo apt install php php7.2
 
-sudo apt install php7.4
-
-sudo apt install php-pear php7.4-curl php7.4-dev php7.4-gd php7.4-mbstring php7.4-zip php7.4-mysql php7.4-xml
+sudo apt install php-pear php7.2-curl php7.2-gd php7.2-mbstring php7.2-zip php7.2-mysql php7.2-xml
 
 sudo systemctl restart apache2
 
@@ -156,8 +154,13 @@ sudo apt install nodejs
 
 sudo apt install npm
 
-sudo npm install -g @angular/cli@7.0.7
+sudo npm install -g @angular/cli
 
+sudo npm cache clean -f
+
+sudo npm install -g n
+
+sudo n stable
 
 =====================================================================================
 
@@ -239,9 +242,12 @@ sudo apt install default-jre
 sudo snap install --classic eclipse  
 
 sudo chmod 777 /var/www/html
-   run Eclipse Ide, then choice "/var/www/html" as eclipse workspace, then you can code PHP 
-   and other apache applications and the changes already visible when access 
-   http://localhost/<app-name>. Go to window -> preferences -> General -> Appearance, adjust 
+
+run Eclipse Ide, then choice "/var/www/html" as eclipse workspace, 
+
+then you can code PHP and other apache applications and the changes already visible when access http://localhost/<app-name>. 
+
+Go to window -> preferences -> General -> Appearance, adjust 
    the theme, font and colors, according whit ubuntu theme that are applied.
    
 
@@ -260,6 +266,5 @@ sudo unzip <filezip>.zip
 sudo mv <filezip> <newName>
 
 Access http://localhost/<newName>
-
 
 
