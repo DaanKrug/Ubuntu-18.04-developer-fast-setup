@@ -1,5 +1,5 @@
-# Ubuntu-18.04-developer-fast-setup
-Change Theme, Tunning Ubuntu and Comands for Install: Apache2, PHP 7.4, Elixir, Maria DB, NodeJs + NPM
+# Ubuntu-18.04-developer-fast-setup - Last update on: 22/06/2020
+Change Theme, Tunning Ubuntu and Comands for Install: Apache2, PHP 7.2, Elixir, Maria DB, NodeJs + NPM
 
 This is a Step by Step for install and configure some programs. This is a compilation 
 of various websites. The origin sites are above in right side
@@ -206,7 +206,7 @@ use "GNOME Tweaks" to apply the theme and font that was installed.
 
 =====================================================================================
 
- Tunning
+ Tunning / Adjusts
 
 =====================================================================================
 
@@ -230,6 +230,21 @@ sudo sysctl vm.swappiness=10
   to confirm that was adjusted: cat /proc/sys/vm/swappiness
 
 
+To solve problems whit screen (Leg/Screen Blocking sometimes) - Intel Processors
+
+  Backup grub initialization file:
+  cp /etc/default/grub /etc/default/grub.bkp
+
+  Change the line: GRUB_CMDLINE_LINUX_DEFAULT=“quiet splash”
+  to: GRUB_CMDLINE_LINUX_DEFAULT=“quiet splash intel_idle.max_cstate=1” 
+  close the file.
+
+  Update the grub initialization:
+  sudo update-grub
+
+  Then restart system to take new configuration working.
+
+
 ======================================================================================
 
 Install Eclipse IDE - 
@@ -245,7 +260,7 @@ sudo chmod 777 /var/www/html
 
 run Eclipse Ide, then choice "/var/www/html" as eclipse workspace, 
 
-then you can code PHP and other apache applications and the changes already visible when access http://localhost/<app-name>. 
+then you can code PHP and other apache applications and the changes already visible when access http://localhost/app-name. 
 
 Go to window -> preferences -> General -> Appearance, adjust 
    the theme, font and colors, according whit ubuntu theme that are applied.
@@ -261,10 +276,9 @@ download from https://www.phpmyadmin.net/
 
 copy the .zip file to "/var/www/html"
 
-sudo unzip <filezip>.zip 
+sudo unzip filezip.zip 
 
-sudo mv <filezip> <newName>
+sudo mv filezip newName
 
-Access http://localhost/<newName>
-
+Access http://localhost/newName
 
