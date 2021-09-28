@@ -32,9 +32,7 @@ sudo systemctl status apache2
 
 sudo apachectl -v
 
-sudo a2enmod rewrite
-
-sudo a2enmod allowmethods
+sudo a2enmod rewrite allowmethods proxy proxy_http proxy_ajp deflate headers proxy_balancer proxy_connect proxy_html
 
 sudo systemctl restart apache2
 
@@ -76,12 +74,26 @@ sudo apt update
 
 sudo apt install mariadb-server
 
-sudo mysql_secure_installation
+sudo mysql 
+
+	delete from mysql.user;
+
+	insert into mysql.user(Host,User,Password,ssl_cipher,x509_issuer,x509_subject,authentication_string) values ('localhost','echo',PASSWORD('123456'),'','','','');
+	
+	GRANT ALL PRIVILEGES ON *.* TO 'echo'@'localhost';
+
+	Flush Privileges;
+	
+	commit;
+	
+	exit;
+	
+sudo mysql -u echo -p123456
 
 
 ======================================================================================
 
-3º - Install PHP 7.2 - https://thishosting.rocks/install-php-on-ubuntu/
+3º - Install PHP 7.2/7.4 - https://thishosting.rocks/install-php-on-ubuntu/
 
 ======================================================================================
 
@@ -90,6 +102,8 @@ sudo apt update
 sudo apt upgrade
 
 sudo apt install php php7.2 php-pear php7.2-curl php7.2-gd php7.2-mbstring php7.2-zip php7.2-mysql php7.2-xml
+
+sudo apt install php php7.4 php-pear php7.4-curl php7.4-xml php7.4-common php7.4-gd php7.4-intl php7.4-mbstring php7.4-zip php7.4-json php7.4-iconv php7.4-mysql php7.4-bcmath
 
 sudo systemctl restart apache2
 
@@ -238,7 +252,43 @@ copy the .zip file to "/var/www/html"
 
 sudo unzip filezip.zip 
 
-sudo mv filezip newName
+sudo mv filezip mysql
 
-Access http://localhost/newName
+Access http://localhost/mysql
+
+cd /var/www/html/mysql
+
+sudo cp config.sample.inc.php config.inc.php
+
+sudo gedit config.inc.php
+
+edit First server configuration section
+
+/**
+
+ * First server
+ 
+ */
+ 
+$i++;
+
+/* Server parameters */
+
+$cfg['Servers'][$i]['verbose'] = 'Local';
+
+$cfg['Servers'][$i]['host'] = 'localhost';
+
+$cfg['Servers'][$i]['port'] = '';
+
+$cfg['Servers'][$i]['socket'] = '';
+
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
+
+$cfg['Servers'][$i]['extension'] = 'mysqli';
+
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
+
+
 
