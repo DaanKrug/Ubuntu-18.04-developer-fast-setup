@@ -1,4 +1,4 @@
-# Ubuntu-18.04-developer-fast-setup - Last update on: 14/09/2021
+# Ubuntu-18.04-developer-fast-setup - Last update on: 28/09/2021
 Change Theme, Tunning Ubuntu and Comands for Install: Apache2, PHP 7.2, Elixir, Maria DB, NodeJs + NPM
 
 This is a Step by Step for install and configure some programs. This is a compilation 
@@ -6,6 +6,14 @@ of various websites. The origin sites are above in right side
 of each topic, there are the respectives descriptions.
 Feel free to use this by yourself responsability. This is intended for use in development
 machines, don't put it directly in production whitout test and required adjusts.
+
+	# Make a bootable USB install
+		- 1: Download an official ubuntu .iso file: 
+			-On ubuntu: https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#download
+			-On Windows: https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#download
+		- 2: Transform the .iso file to bootable installation: 
+			-On ubuntu: https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview
+			-On Windows: https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#1-overview
 
 
 ======================================================================================
