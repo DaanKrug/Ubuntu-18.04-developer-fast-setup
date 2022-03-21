@@ -250,9 +250,9 @@ download from https://www.phpmyadmin.net/
 
 copy the .zip file to "/var/www/html"
 
-sudo unzip filezip.zip 
+sudo unzip <filezip>.zip 
 
-sudo mv filezip mysql
+sudo mv <filezip> mysql
 
 Access http://localhost/mysql
 
@@ -262,7 +262,7 @@ sudo cp config.sample.inc.php config.inc.php
 
 sudo gedit config.inc.php
 
-edit First server configuration section
+edit First server configuration section to seem as below:
 
 /**
 
